@@ -7,7 +7,12 @@ the process kicks in
 recommendation for production pipeline:
 1 - ingest data into bronze using append option
 2 - apply merge statements from bronze into silver
-3 - validate the quality of the data on gold
+3 - validate the quality of the data on gold {chispa}
+
+types of iceberg tables
+local.db.bronze.mssql.user
+local.db.bronze.mssql.transactions
+local.db.bronze.mongodb.sales
 """
 
 # import libraries
@@ -29,7 +34,7 @@ spark = SparkSession \
 print(SparkConf().getAll())
 spark.sparkContext.setLogLevel("INFO")
 
-# set filepath location
+# set filepath location {querying data lake}
 device_filepath = "/Users/luanmorenomaciel/GitHub/ws-spark-lakehouse-na-pratica/storage/files/device/*.json"
 subscription_filepath = "/Users/luanmorenomaciel/GitHub/ws-spark-lakehouse-na-pratica/storage/files/subscription/*.json"
 
